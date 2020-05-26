@@ -18,7 +18,7 @@ public class EmailInDraftsAfterSentTest extends BaseTest{
         String emailBody = StringUtils.getRandomString(50);
 
         @Test
-        public void verifyEmailInDrafts(){
+        public void verifyEmailInDrafts() {
                 UserCreator creator = new QAUserCreator();
                 User testUser = creator.createUser();
                 new LoginPage(driver)

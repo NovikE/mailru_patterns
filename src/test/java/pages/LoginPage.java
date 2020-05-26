@@ -2,9 +2,7 @@ package pages;
 
 import decorator.CustomDriverDecorator;
 import factorymethod.User;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -32,9 +30,8 @@ public class LoginPage extends AbstractPage{
     @FindBy(id = "PH_user-email")
     private WebElement userName;
 
-    public LoginPage(WebDriver driver){
+    public LoginPage(CustomDriverDecorator driver){
         super (driver);
-        //driver = CustomDriverDecorator(driver);
         driver.get(HOMEPAGE_URL);
         new WebDriverWait(driver, WAIT_TIMEOUTS_SECONDS)
                 .until(ExpectedConditions.visibilityOf(login));
@@ -42,9 +39,9 @@ public class LoginPage extends AbstractPage{
 
     public LoginPage login(User testUser){
 
-        new Actions(driver).sendKeys(login, testUser.getUsername()).build().perform();
-        new Actions(driver).click(saveAuthCheckBox).build().perform();
-        UtilsWithJS.clickAsJs(driver, "mailbox:submit");
+        login.sendKeys(testUser.getUsername());
+        saveAuthCheckBox.click();
+        addPassBtn.click();
         passwordInput.sendKeys(testUser.getPassword());
         addPassBtn.click();
 

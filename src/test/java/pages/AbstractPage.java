@@ -1,15 +1,15 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
+import decorator.CustomDriverDecorator;
 import org.openqa.selenium.support.PageFactory;
 
 public abstract class AbstractPage {
 
-    protected WebDriver driver;
+    protected CustomDriverDecorator driver;
 
     protected final int WAIT_TIMEOUTS_SECONDS = 10;
 
-    protected AbstractPage(WebDriver driver){
+    protected AbstractPage(CustomDriverDecorator driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }

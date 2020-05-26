@@ -18,7 +18,7 @@ public class VerifyEmailInDraftsTest extends BaseTest{
         String emailBody = StringUtils.getRandomString(50);
 
         @Test
-        public void createEmailAsDraft(){
+        public void createEmailAsDraft() {
 
                 UserCreator creator = new QAUserCreator();
                 User testUser = creator.createUser();

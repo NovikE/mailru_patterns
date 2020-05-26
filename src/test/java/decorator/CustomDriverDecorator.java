@@ -1,15 +1,16 @@
 package decorator;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.util.List;
 import java.util.Set;
 
 public class CustomDriverDecorator implements WebDriver, JavascriptExecutor {
 
-    protected WebDriver driver;
+    protected RemoteWebDriver driver;
 
-    public CustomDriverDecorator(WebDriver driver) {
+    public CustomDriverDecorator(RemoteWebDriver driver) {
         this.driver = driver;
     }
 
@@ -68,17 +69,14 @@ public class CustomDriverDecorator implements WebDriver, JavascriptExecutor {
         return driver.manage();
     }
 
-    @Override
     public <X> X getScreenshotAs(OutputType<X> target) throws WebDriverException {
         return driver.getScreenshotAs(target);
     }
 
-    @Override
     public Object executeScript(String script, Object... args) {
         return driver.executeScript(script, args);
     }
 
-    @Override
     public Object executeAsyncScript(String script, Object... args) {
         return driver.executeAsyncScript(script, args);
     }

@@ -1,6 +1,6 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
+import decorator.CustomDriverDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -30,10 +30,10 @@ public class ComposeEmailDialog extends AbstractPage{
     @FindBy(xpath = "//*[@title='Закрыть']")
     private WebElement closeEmail;
 
-    public ComposeEmailDialog(WebDriver driver){
+    public ComposeEmailDialog(CustomDriverDecorator driver) {
         super (driver);
         new WebDriverWait(driver, WAIT_TIMEOUTS_SECONDS).
-                until(ExpectedConditions.visibilityOf(composeBtn));
+               until(ExpectedConditions.visibilityOf(composeBtn));
        }
 
     public ComposeEmailDialog clickCompose(){

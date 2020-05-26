@@ -1,6 +1,6 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
+import decorator.CustomDriverDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -35,7 +35,7 @@ public class SentEmailsFolderPage extends AbstractPage {
 
     public void logout(){exitBtn.click();}
 
-    public SentEmailsFolderPage(WebDriver driver){
+    public SentEmailsFolderPage(CustomDriverDecorator driver){
         super(driver);
         new WebDriverWait(driver, WAIT_TIMEOUTS_SECONDS).
                 until(ExpectedConditions.visibilityOf(sentFolderBtn));}

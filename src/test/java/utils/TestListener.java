@@ -24,7 +24,7 @@ public class TestListener implements ITestListener {
     }
 
     public void makeScreenshots() {
-        File screenShotFile = ((TakesScreenshot) DriverSingleton.getDriver())
+        File screenShotFile = (DriverSingleton.getDriver())
                 .getScreenshotAs(OutputType.FILE);
 
         try {

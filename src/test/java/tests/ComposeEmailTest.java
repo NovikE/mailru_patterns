@@ -18,7 +18,7 @@ public class ComposeEmailTest extends BaseTest{
         String emailBody = StringUtils.getRandomString(50);
 
         @Test
-        public void saveEmail() {
+        public void saveEmail() throws InterruptedException {
             UserCreator creator = new QAUserCreator();
             User testUser = creator.createUser();
             new LoginPage(driver)
